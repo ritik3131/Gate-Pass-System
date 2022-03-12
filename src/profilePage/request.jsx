@@ -1,24 +1,12 @@
 import * as React from "react";
-import {styled} from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
-import IconButton from "@mui/material/IconButton";
-import {Button, Typography} from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
-import {TextField} from "@mui/material";
-import {yellow} from "@mui/material/colors";
+import { TextField } from "@mui/material";
+import { yellow } from "@mui/material/colors";
 import axiosInstance from "../util/axiosIntance";
-const ExpandMore = styled((props) => {
-  const {expand, ...other} = props;
-  return <IconButton {...other} />;
-})(({theme, expand}) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
 
 const textFieldColor = "grey";
 const textFieldSX = {
@@ -35,20 +23,20 @@ function request(props) {
   const requestId = props.id;
   const deleteRequestHandler = async () => {
     props.onDelete(requestId);
-    const response = await axiosInstance.get(
+    await axiosInstance.get(
       `https://gate-pass-system-iitbbs.herokuapp.com/api/v1/request/delete-request/${requestId}`
     );
     // navigate('/user/profile-page');
   };
   return (
-    <Card variant="outlined" style={{margin: "10px" , ...props.style}}>
+    <Card variant="outlined" style={{ margin: "10px", ...props.style }}>
       {Status && Status === "confirmed" ? (
         <CheckCircleIcon color="success" />
       ) : (
-        <PendingActionsIcon sx={{color: yellow[500]}} />
+        <PendingActionsIcon sx={{ color: yellow[500] }} />
       )}
       <CardHeader
-        style={{marginTop: "10px"}}
+        style={{ marginTop: "10px" }}
         title={
           <TextField
             id="outlined-helperText"
@@ -86,14 +74,13 @@ function request(props) {
         }
       />
       <CardHeader
-        style={{marginTop: "-20px"}}
+        style={{ marginTop: "-20px" }}
         title={
           <TextField
-
             sx={textFieldSX}
             disabled={true}
             id="outlined-basic"
-            label={<div style={{marginRight: "12px"}}>Reason</div>}
+            label={<div style={{ marginRight: "12px" }}>Reason</div>}
             defaultValue={Reason}
             fullWidth="true"
             InputLabelProps={{
@@ -122,10 +109,9 @@ function request(props) {
         }
       />
       <CardHeader
-        style={{marginTop: "-20px"}}
+        style={{ marginTop: "-20px" }}
         title={
           <TextField
-
             sx={textFieldSX}
             disabled={true}
             id="outlined-helperText"
@@ -171,7 +157,7 @@ function request(props) {
         <Button
           color="error"
           variant="outlined"
-          style={{paddingBottom: ""}}
+          style={{ paddingBottom: "" }}
           onClick={deleteRequestHandler}
         >
           Delete Pass Request

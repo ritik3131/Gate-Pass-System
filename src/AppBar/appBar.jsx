@@ -14,17 +14,14 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import CoPresentIcon from "@mui/icons-material/CoPresent";
 import EditIcon from "@mui/icons-material/Edit";
 import GateLogo from "../assets/Logo.png";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth";
 export default function ButtonAppBar() {
-  const { height, width } = WindowDimension();
+  const { width } = WindowDimension();
   const authCtx = React.useContext(AuthContext);
   const [sideBar, setSideBar] = React.useState(false);
   const navigate = useNavigate();
@@ -69,9 +66,9 @@ export default function ButtonAppBar() {
             }}
           >
             <ListItemIcon>
-              {index == 0 ? <AccountCircleIcon /> : <></>}
-              {index == 1 ? <EditIcon /> : <></>}
-              {index == 2 ? <CoPresentIcon /> : <></>}
+              {index === 0 ? <AccountCircleIcon /> : <></>}
+              {index === 1 ? <EditIcon /> : <></>}
+              {index === 2 ? <CoPresentIcon /> : <></>}
             </ListItemIcon>
             <ListItemText style={{ marginLeft: "-10px" }}>
               <Typography variant="HeadingList">{text}</Typography>

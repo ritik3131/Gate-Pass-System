@@ -47,7 +47,7 @@ export default function ProfilePage() {
       setHostelRoomNumber(roomNo);
     };
     getUser();
-  }, []);
+  }, [authCtx]);
 
   const { user } = authCtx;
   if (!user) return <Navigate to="/" />;

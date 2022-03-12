@@ -1,31 +1,28 @@
 import * as React from "react";
-import {styled} from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import Collapse from "@mui/material/Collapse";
-import IconButton from "@mui/material/IconButton";
 import {Button, Typography, ListItem as Item} from "@mui/material";
 import {Grid} from "@mui/material";
 import Requests from "./request";
 import axiosInstance from "../util/axiosIntance";
-const ExpandMore = styled((props) => {
-  const {expand, ...other} = props;
-  return <IconButton {...other} />;
-})(({theme, expand}) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
-const textFieldColor = "grey"
-const textFieldSX = {
-  input: {
-    "-webkit-text-fill-color": `${textFieldColor} !important`,
-    color: `${textFieldColor} !important`,
-  },
-};
+// const ExpandMore = styled((props) => {
+//   const {expand, ...other} = props;
+//   return <IconButton {...other} />;
+// })(({theme, expand}) => ({
+//   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
+//   marginLeft: "auto",
+//   transition: theme.transitions.create("transform", {
+//     duration: theme.transitions.duration.shortest,
+//   }),
+// }));
+// const textFieldSX = {
+//   input: {
+//     "-webkit-text-fill-color": `${textFieldColor} !important`,
+//     color: `${textFieldColor} !important`,
+//   },
+// };
 
 export default function AdminPage(props) {
   const [expanded, setExpanded] = React.useState(false);
@@ -89,7 +86,7 @@ export default function AdminPage(props) {
             </Typography>
           </CardContent>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
-            {requests.length == 1 ? (
+            {requests.length === 1 ? (
               requests.map((elem) => {
                 return (
                   <Item

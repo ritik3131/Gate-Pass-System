@@ -1,12 +1,8 @@
-import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
-import axiosInstance from "../util/axiosIntance";
 import {
-  Box,
   Button,
   Divider,
   Grid,
-  useMediaQuery,
   Card,
   Stack,
   ListItem,
@@ -14,11 +10,10 @@ import {
 } from "@mui/material";
 import { ReactComponent as Google } from "../assets/GoogleLogo.svg";
 import GateLogo from "../assets/Logo.png";
-import axios from "axios";
 const FirebaseLogin = ({ ...others }) => {
   const theme = useTheme();
-  const matchDownSM = useMediaQuery(theme.breakpoints.down("md"));
-  const oAuthUrl = "https://gate-pass-system-iitbbs.herokuapp.com/api/v1/auth/google";
+  const oAuthUrl =
+    "https://gate-pass-system-iitbbs.herokuapp.com/api/v1/auth/google";
   const googleLoginHandler = async () => {
     // const response = await axios.get(oAuthUrl);
     // console.log(response);

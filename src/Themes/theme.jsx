@@ -1,4 +1,4 @@
-import {createTheme, ThemeProvider} from "@mui/material/styles";
+import {createTheme} from "@mui/material/styles";
 const theme = createTheme({
   typography: {
     h5: {
