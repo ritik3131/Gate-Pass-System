@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import "./index.css";
 import LoginOAuth from "./Login/loginPage";
 import InputForm from "./Form/InputForm.jsx";
@@ -29,14 +29,14 @@ function Router() {
   // const adminComponent =
   //   user && user.isAdmin ? <Requests /> : <Navigate to="/" />;
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<LoginOAuth />} />
         <Route path="/user/profile-page" element={<ProfilePage />} />
         <Route path="/user/Input" element={<InputForm />} />
         <Route path="/Admin/requests" element={<Requests />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
