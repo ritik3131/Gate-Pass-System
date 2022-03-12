@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Navigate } from "react-router";
+// import { Navigate } from "react-router";
 import { AuthContext } from "../context/auth";
 import axiosInstance from "../util/axiosIntance";
 import ProfilePageCard from "./Card";
